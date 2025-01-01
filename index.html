@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDC</title>
+    <link rel="icon" href="assets/logo.png" type="image/x-icon">
+    <!---custom css link-->
+    <link rel="stylesheet" href="style.css">
+    
+
+    <!---boxicons css link-->
+    <link rel="stylesheet"
+     href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+     rel="stylesheet">
+
+     <!---google font css link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <script src="APIs/maps.js"></script>
+
+
+     
+</head>
+<body>
+   <!---header section-->
+<header>
+    <a href="index.html" class="logo">
+      <img src="assets/logo.png" alt="Logo GDC" />
+    </a>
+    <button class="hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="navbar">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <li><a href="calendar.html">Calendar</a></li>
+      <li><a href="galeri.html">Galeri</a></li>
+      <li><a href="contact.html">Contact us</a></li>
+    </ul>
+  </header>
+  
+  <link rel="stylesheet" href="styles.css">
+  
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navbar = document.querySelector('.navbar');
+  
+    hamburger.addEventListener('click', () => {
+      navbar.classList.toggle('active');
+    });
+  </script>
+  
+    
+    <!---home section file link-->
+    <section id="home" class="home">
+        <div class="home-text">
+             <h1> GAME DEVELOPMENT CLUB</h1>
+             <p><b>Hai Insan Kreatif! Berdiri sejak tahun 2010, Game Development Club (GDC) 
+                merupakan organisasi bidang sains yang bertujuan untuk mewadahi mahasiswa/i 
+                untuk belajar dan melakukan produksi game dalam sebuah tim. Bersama dengan alumni GDC UMN 
+                yang sudah banyak terjun ke dalam industri game di Indonesia dan senior-senior GDC lainnya,
+                 anggota GDC berkumpul dan belajar mendevelop game bersama setiap minggunya yang akan dipamerkan 
+                 saat acara GDC Game Expo (G2X) pada akhir tahun. GDC juga memiliki banyak aktivitas lainnya yang 
+                 dijamin seru, dan berguna untuk kalian yang menyukai game dan development!</b>
+
+             </p>
+
+        </div>    
+    </section>
+
+    <!--Sejarah section-->
+    <section id="information" class="Sejarah">
+        <div class="Sejarah-img">
+            <img src="assets/logoemas.png">
+        </div>
+
+        <div class="Sejarah-text">
+            <h5>VISI</h5>
+            <p> Menjadi wadah kreatif dan inovatif bagi para mahasiswa dalam mengembangkan keterampilan 
+                di bidang pengembangan game, sehingga mampu menciptakan karya game berkualitas yang berdaya 
+                saing dan memberikan dampak positif di tingkat nasional maupun internasional.</p>
+            <h5>MISI</h5>
+            <p>Membentuk komunitas yang inklusif dan kolaboratif untuk mendukung pengembangan kemampuan 
+                teknis dan kreativitas anggota dalam pembuatan game dan Membangun jaringan dengan komunitas game lainnya, 
+                baik di tingkat universitas, regional, maupun global, untuk berbagi ilmu dan pengalaman.</p>
+        </div>
+    
+    </section>
+
+    <!--Kegiatan section-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+ 
+<section class="explore">
+  <div class="slide">
+    <div class="item" style="background-image: url(assets/pertmingberanda.JPG);">
+      <div class="content">
+        <div class="name">Pertemuan Mingguan</div>
+        <div class="des">Setiap Hari Rabu Jam 18:00 - 20:00/21:00</div>
+        <a href="galeri.html">
+          <button class="itembtn">See More</button>
+        </a>
+      </div>
+    </div>
+    <div class="item" style="background-image: url(assets/g2xberanda.JPG);">
+      <div class="content">
+        <div class="name">G2X</div>
+        <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
+        <a href="galeri.html">
+          <button class="itembtn">See More</button>
+        </a>
+      </div>
+    </div>
+    <div class="item" style="background-image: url(assets/ggjberanda.png);">
+      <div class="content">
+        <div class="name">GGJ</div>
+        <div class="des">Global Game Jam 2024</div>
+        <div class="des">26 -28 January 2024</div>
+        <a href="galeri.html">
+          <button class="itembtn">See More</button>
+        </a>
+      </div>
+    </div>
+    <div class="item" style="background-image: url(assets/fotopanit.JPG);">
+      <div class="content">
+        <div class="name">Idea Jam</div>
+        <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
+        <a href="galeri.html">
+          <button class="itembtn">See More</button>
+        </a>
+      </div>
+    </div>
+    <div class="item" style="background-image: url(assets/g2xberanda.JPG);">
+      <div class="content">
+        <div class="name">Kegiatan 5</div>
+        <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
+        <a href="galeri.html">
+          <button class="itembtn">See More</button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="button">
+    <button class="prev"><i class="fa-solid fa-arrow-left"></i></button>
+    <button class="next"><i class="fa-solid fa-arrow-right"></i></button>
+  </div>
+</section>
+
+
+    <!--divisi  section-->
+    <div>
+    <section id="culture" class="Top">
+        <div class="center-text">
+            <h2>DIVISI</h2>
+        </div>
+
+        <div class="Destinations-content">
+            <div class="box">
+                <img src="assets/char1.png" alt="Coder">
+                <div class="overlay">
+                    <p>Coder adalah divisi yang ngoding .</p>
+                </div>
+                <h6<>Coder</h6>
+            </div>
+        
+            <div class="box">
+                <img src="assets/char2.png" alt="Visual">
+                <div class="overlay">
+                    <p>Visual adalah divisi yang membuat visual.</p>
+                </div>
+                <h6<>Visual</h6>
+            </div>
+        
+            <div class="box">
+                <img src="assets/char3.png" alt="Audio">
+                <div class="overlay">
+                    <p>Audio adalah divisi yang membuat audio.</p>
+                </div>
+                <h6<>Audio</h6>
+            </div>
+        </div>
+        
+
+        <div class="center-btn">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSflwzegXCJElAQgeBxpvoughb55GEn4hFmOes90FWfxsGRbhQ/viewform?usp=dialog" class="btn"  target="_blank">JOIN US </a>
+        </div>
+    </section>
+
+        </section>
+
+
+
+        <!--funfact section-->
+        <section id="information" class="Sejarah">
+            <div class="Sejarah-img">
+                <img src="assets/pngkw.png">
+            </div>
+    
+            <div class="Sejarah-text">
+                <h5>GAME DEVELOPMENT CLUB</h5>
+                <h2>Fun Fact</h2>
+                <p>Game pertama yang diakui secara luas adalah "Spacewar!" yang dikembangkan pada 
+                    tahun 1962 oleh mahasiswa MIT. Dibuat hanya dengan tujuan eksperimen, game ini
+                     menginspirasi lahirnya industri game modern.</p>
+      
+            </div>
+        
+        </section>
+
+
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-logos">
+            <img src="assets/logo.png" alt="GCC Logo" />
+            <div class="divider"></div>
+            <img src="assets/umnlogo.png" alt="UMN Logo" />
+        </div>
+
+        <div class="footer-content">
+            <h3>Game Development Club<br />Universitas Multimedia Nusantara</h3>
+            <p>
+                Jl. Boulevard, Gading Serpong, kel. Curug Sangereng,
+                Kec. Kelapa Dua, Kab. Tangerang, Prop. Banten, Indonesia
+            </p>
+        </div>
+
+  
+
+        <!-- Social Media Links -->
+        <div class="footer-socials">
+            <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                <i class="bx bxl-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/gdcumn?igsh=YmNpYTh4NDFhNzgx" target="_blank" aria-label="Instagram">
+                <i class="bx bxl-instagram"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+                <i class="bx bxl-twitter"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+                <i class="bx bxl-linkedin"></i>
+            </a>
+            <a href="https://github.com" target="_blank" aria-label="github">
+                <i class="bx bxl-github"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>Game Development &copy; 2024</p>
+    </div>
+</footer>
+
+
+    </srction>
+    <!---custom hs file link-->
+    <script src="script.js"></script>
+    
+</body>
+</html>

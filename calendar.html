@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDC</title>
+    <link rel="icon" href="assets/logo.png" type="image/x-icon">
+    <!---custom css link-->
+    <link rel="stylesheet" href="style.css">
+    
+
+    <!---boxicons css link-->
+    <link rel="stylesheet"
+     href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+     rel="stylesheet">
+
+     <!---google font css link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <script src="APIs/maps.js"></script>
+
+
+     
+</head>
+<body>
+   <!---header section-->
+<header>
+  <a href="index.html" class="logo">
+    <img src="assets/logo.png" alt="Logo GDC" />
+  </a>
+  <button class="hamburger" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <ul class="navbar">
+    <li><a href="index.html">Beranda</a></li>
+    <li><a href="profile.html">Profile</a></li>
+    <li><a href="calendar.html">Calendar</a></li>
+    <li><a href="galeri.html">Galeri</a></li>
+    <li><a href="contact.html">Contact us</a></li>
+  </ul>
+</header>
+
+<link rel="stylesheet" href="styles.css">
+
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  const navbar = document.querySelector('.navbar');
+
+  hamburger.addEventListener('click', () => {
+    navbar.classList.toggle('active');
+  });
+</script>
+
+        <!---home section file link-->
+        <section id="home" class="home">
+            <div class="home-text">
+                 <h1>CALENDAR  GAME DEVELOPMENT CLUB</h1>
+                 <p>🕹️ Selamat datang di halaman Kalender Kegiatan kami! Halaman ini dirancang untuk 
+                  memberikan informasi terkini tentang jadwal kegiatan, acara, dan program yang akan 
+                  diselenggarakan oleh Game Development Club. Pastikan Anda tidak melewatkan momen seru
+                   untuk belajar, berkolaborasi, dan berkreasi bersama komunitas pengembang game kami.
+                 </p>
+            </div>    
+        </section>
+
+  <!-- Button Absen Section -->
+<div class="center-btn">
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSflwzegXCJElAQgeBxpvoughb55GEn4hFmOes90FWfxsGRbhQ/viewform" class="btn" target="_blank">ABSEN PERTEMUAN MINGGUAN</a>
+</div>
+
+<!-- Tanggal dan Countdown Section -->
+<div id="main-container">
+  <!-- Section Tanggal dan Waktu -->
+  <section id="section-jam">
+    <div class="container-jam">
+      <p id="tanggal-jam">Tanggal: Memuat...</p>
+      <p id="waktu-jam">Waktu: Memuat...</p>
+    </div>
+  </section>
+
+  <!-- Section Countdown -->
+  <section id="section-countdown">
+    <div class="container-countdown">
+      <p id="countdown-title">Pendaftaran dalam:</p>
+      <p id="countdown-timer">Memuat...</p>
+    </div>
+  </section>
+</div>
+
+
+<!-- JavaScript -->
+<script>
+ // Fungsi Countdown
+function hitungMundur(targetDate) {
+  const apiKey = 'AIzaSyAENpkENoVMSwhvIXCm-DxyRnticOzSd70'; // Ganti dengan API key Anda
+  const url = `https://maps.googleapis.com/maps/api/timezone/json?location=-6.2088,106.8456&timestamp=${Math.floor(Date.now() / 1000)}&key=${apiKey}`;
+
+  fetch(url)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then((data) => {
+      const timeZoneOffset = (data.rawOffset + data.dstOffset) * 1000;
+
+      setInterval(() => {
+        const now = new Date();
+        const jakartaTime = new Date(now.getTime() + timeZoneOffset);
+        const timeLeft = new Date(targetDate) - jakartaTime;
+
+        if (timeLeft > 0) {
+          const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+          document.getElementById('countdown-timer').innerHTML = 
+            `${days} hari, ${hours} jam, ${minutes} menit, ${seconds} detik`;
+        } else {
+          document.getElementById('countdown-timer').innerHTML = 'Waktu pendaftaran telah tiba!';
+          clearInterval();
+        }
+      }, 1000);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      document.getElementById('countdown-timer').textContent = 'Gagal memuat countdown.';
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const targetDate = '2025-08-17T00:00:00'; // Tanggal target
+  hitungMundur(targetDate);
+});
+
+// Fungsi Tampilkan Waktu
+function tampilkanWaktu() {
+  setInterval(() => {
+    const currentTime = new Date();
+
+    // Mendapatkan nama hari
+    const hari = currentTime.toLocaleDateString('id-ID', { weekday: 'long' });
+
+    // Format tanggal
+    const optionsTanggal = { day: 'numeric', month: 'long', year: 'numeric' };
+    const formattedDate = currentTime.toLocaleDateString('id-ID', optionsTanggal);
+
+    // Format waktu
+    const formattedTime = currentTime.toLocaleTimeString([], {
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false,
+    });
+
+    // Update elemen HTML
+    document.getElementById('tanggal-jam').innerHTML = 
+      'Hari ' + hari + '<br>Tanggal: ' + formattedDate;
+    document.getElementById('waktu-jam').innerHTML = 
+      'Jam: <strong>' + formattedTime + '</strong>';
+  }, 1000);
+}
+
+document.addEventListener('DOMContentLoaded', tampilkanWaktu);
+
+</script>
+
+
+<!-- CSS countdown-->
+<style>
+  /* Pembungkus utama */
+#main-container {
+  display: flex;
+  flex-wrap: wrap; /* Membuat elemen turun ke baris berikutnya jika tidak muat */
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Section tanggal dan countdown */
+#section-jam,
+#section-countdown {
+  width: 300px; /* Ukuran awal */
+  height: auto;
+  background-color: #000000;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding: 20px;
+  margin: 10px;
+}
+
+.container-jam,
+.container-countdown {
+  background: var(--main-color);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+}
+
+.container-jam p,
+.container-countdown p {
+  margin: 10px 0;
+  font-size: 18px;
+  color: #333;
+}
+
+#countdown-timer {
+  font-size: 16px;
+  color: black;
+}
+
+/* Styling Tombol */
+.center-btn {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.center-btn .btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 20px;
+  background: #ffa343;
+  color: black;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.center-btn .btn:hover {
+  background: #ff992c;
+}
+
+/* Media Query untuk layar kecil */
+@media (max-width: 768px) {
+  #section-jam,
+  #section-countdown {
+    width: 100%; /* Lebar penuh */
+    margin: 5px 0;
+  }
+
+  #main-container {
+    flex-direction: column; /* Elemen vertikal */
+    gap: 10px;
+  }
+
+  .center-btn {
+    margin-top: 1rem;
+  }
+
+  .center-btn .btn {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-jam p,
+  .container-countdown p {
+    font-size: 16px;
+  }
+
+  #countdown-timer {
+    font-size: 14px;
+  }
+}
+
+</style>
+
+
+</section>
+
+<!-- JavaScript -->
+<script>
+  function tampilkanWaktu() {
+    setInterval(() => {
+      const currentTime = new Date();
+
+      // Mendapatkan nama hari dalam seminggu (misalnya, Senin, Selasa, dst.)
+      const hari = currentTime.toLocaleDateString('id-ID', { weekday: 'long' });
+
+      // Format tanggal
+      const optionsTanggal = { day: 'numeric', month: 'long', year: 'numeric' };
+      const formattedDate = currentTime.toLocaleDateString('id-ID', optionsTanggal);
+
+      // Format waktu (24 jam)
+      const formattedTime = currentTime.toLocaleTimeString([], {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false,
+      });
+
+      // Update konten elemen HTML
+      document.getElementById("tanggal-jam").innerHTML = 
+        "Hari " + hari + "<br>" + "Tanggal: " + formattedDate + "<br>"; // Menambahkan hari
+      document.getElementById("waktu-jam").innerHTML = 
+        "Jam: <strong>" + formattedTime ;
+    }, 1000); // Perbarui setiap 1 detik
+  }
+
+  document.addEventListener("DOMContentLoaded", tampilkanWaktu);
+</script>
+
+
+      <!---kalender section -->
+        <section id="calendar-section">
+            <h2 style="text-align: center; color: #ffa343; font-family: 'Montserrat', sans-serif;">KALENDER KEGIATAN GDC</h2>
+            <div style="text-align: center; margin: 20px auto; max-width: 850px; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+              <iframe 
+                src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Asia%2FJakarta&showPrint=0&title=KEGIATAN%20GDC&showTz=0&src=cmF5ZGVucmVnYW50YTE4MDRAZ21haWwuY29t&src=Y2xhc3Nyb29tMTExNTMxNTc1NzY0MzIxNDkyNTg5QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=Y2xhc3Nyb29tMTE3MTM2MjYxMTEzNDYzOTY5NjA1QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=Y2xhc3Nyb29tMTA2ODUwMjcwNDk3ODM2NDcwNzkxQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=Y2xhc3Nyb29tMTAxMzI0MDA3MDg5NTY5NTE2MzYzQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=Y2xhc3Nyb29tMTAyMTI4OTg0NDU2MDk2MjE2NTM0QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=aWQuaW5kb25lc2lhbiNob2xpZGF5QGdyb3VwLnYuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=Y2xhc3Nyb29tMTE0MzI2MTYwMDUwMDI5NTg2NzQxQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=Y2xhc3Nyb29tMTAzMTA3ODg2NDI1Njk1Mzc1ODM5QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=Y2xhc3Nyb29tMTA2MDk4OTk0NTAxMTM4MDYwOTkxQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=ZmFtaWx5MDY1NjMxODA0OTk4MjYyNTU1MjhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=Y2xhc3Nyb29tMTE1NDAxNzgwMDMxODI0MTI1NTM4QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=Y19jbGFzc3Jvb21iMmE1ZDg1ZkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=Y2xhc3Nyb29tMTA5NzY2NjQ2OTYyMTY1MDE3OTE4QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=Y19jbGFzc3Jvb20zMjY0OGM3M0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=Y2xhc3Nyb29tMTE1NjcxODM3NzAxODkxMTM1MzQxQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=Y2xhc3Nyb29tMTA3NTgxNzAwODA1MDA0Mjg3NTIyQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=Y2xhc3Nyb29tMTA2NjcxNDMyNjkzMzkxNzYwMjU2QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=Y2xhc3Nyb29tMTEwMDgwNTc4OTQzNDU0ODMwMTc4QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=Y2xhc3Nyb29tMTA0NzQ2NjA5MzQ5OTg1NDc2MDcwQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=Y2xhc3Nyb29tMTEyNTUwMzczNDcyMzY5MzA3NTUzQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=Y2xhc3Nyb29tMTE2NTIzNTQ3MDc0MTYwNzg1NTA4QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=Y2xhc3Nyb29tMTAwNjQ2NjMyNDYwNjg2ODkwMTUwQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=Y2xhc3Nyb29tMTE0MTIyMDMwOTc1MzkyMzQ1MjExQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=Y2xhc3Nyb29tMTEwODM0MTQyMzgwNDQ0OTUzNjg5QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=Y2xhc3Nyb29tMTAyNTIzOTM0MTQ2MDc2MDkwNzA1QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=Y2xhc3Nyb29tMTExOTk4MjI4MTU0NzQ0NTU2NjA2QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=Y19jbGFzc3Jvb21lZDhhMDA1N0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%23202124&color=%23137333&color=%23137333&color=%23c26401&color=%230047a8&color=%230B8043&color=%230047a8&color=%23c26401&color=%23007b83&color=%23795548&color=%23c26401&color=%23202124&color=%230047a8&color=%23202124&color=%230047a8&color=%23007b83&color=%23137333&color=%23202124&color=%23007b83&color=%23202124&color=%230047a8&color=%230047a8&color=%230047a8&color=%230047a8&color=%230047a8&color=%23c26401&color=%23137333" 
+                style="border: 0;" 
+                width="100%" 
+                height="600" 
+                frameborder="0" 
+                scrolling="no">
+              </iframe>
+            </div>
+          </section>
+
+          <section id="calendar-section-acara">
+            <h1 class="calendar-title">Jadwal Kegiatan GDC</h1>
+            <div id="calendar-events">Memuat acara...</div>
+          </section>
+          <script src="APIs/calendar.js"></script>
+
+            <!--funfact section-->
+            <section id="information" class="Sejarah">
+                <div class="Sejarah-img">
+                    <img src="assets/skibidi.png">
+                </div>
+        
+                <div class="Sejarah-text">
+                    <h5>GAME DEVELOPMENT CLUB</h5>
+                    <h2>Fun Fact</h2>
+                    <p>Easter egg pertama dalam game ditemukan di Adventure (1980) untuk Atari 2600. 
+                        Developer Warren Robinett menyembunyikan namanya di dalam game karena Atari 
+                        tidak memberikan kredit kepada pembuat game pada masa itu.</p>
+                </div>
+            
+            </section>
+
+
+<!-- Footer Section -->
+<footer class="footer">
+  <div class="footer-container">
+      <div class="footer-logos">
+          <img src="assets/logo.png" alt="GCC Logo" />
+          <div class="divider"></div>
+          <img src="assets/umnlogo.png" alt="UMN Logo" />
+      </div>
+
+      <div class="footer-content">
+          <h3>Game Development Club<br />Universitas Multimedia Nusantara</h3>
+          <p>
+              Jl. Boulevard, Gading Serpong, kel. Curug Sangereng,
+              Kec. Kelapa Dua, Kab. Tangerang, Prop. Banten, Indonesia
+          </p>
+      </div>
+
+
+
+      <!-- Social Media Links -->
+      <div class="footer-socials">
+          <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+              <i class="bx bxl-facebook"></i>
+          </a>
+          <a href="https://www.instagram.com/gdcumn?igsh=YmNpYTh4NDFhNzgx" target="_blank" aria-label="Instagram">
+              <i class="bx bxl-instagram"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+              <i class="bx bxl-twitter"></i>
+          </a>
+          <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+              <i class="bx bxl-linkedin"></i>
+          </a>
+          <a href="https://github.com" target="_blank" aria-label="github">
+              <i class="bx bxl-github"></i>
+          </a>
+      </div>
+  </div>
+
+  <div class="footer-bottom">
+      <p>Game Development &copy; 2024</p>
+  </div>
+</footer>
+
+
+</srction>
+<!---custom hs file link-->
+<script src="script.js"></script>
+
+</body>
+</html>

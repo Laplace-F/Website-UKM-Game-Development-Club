@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDC</title>
+    <link rel="icon" href="assets/logo.png" type="image/x-icon">
+    <!---custom css link-->
+    <link rel="stylesheet" href="style.css">
+    
+
+    <!---boxicons css link-->
+    <link rel="stylesheet"
+     href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+     rel="stylesheet">
+
+     <!---google font css link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <script src="APIs/maps.js"></script>
+
+    
+</head>
+<body>
+     <!---header section-->
+<header>
+  <a href="index.html" class="logo">
+    <img src="assets/logo.png" alt="Logo GDC" />
+  </a>
+  <button class="hamburger" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <ul class="navbar">
+    <li><a href="index.html">Beranda</a></li>
+    <li><a href="profile.html">Profile</a></li>
+    <li><a href="calendar.html">Calendar</a></li>
+    <li><a href="galeri.html">Galeri</a></li>
+    <li><a href="contact.html">Contact us</a></li>
+  </ul>
+</header>
+
+<link rel="stylesheet" href="styles.css">
+
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  const navbar = document.querySelector('.navbar');
+
+  hamburger.addEventListener('click', () => {
+    navbar.classList.toggle('active');
+  });
+</script>
+
+        <!---home section file link-->
+        <section id="home" class="home">
+            <div class="home-text">
+                 <h1>CONTACT GAME DEVELOPMENT CLUB</h1>
+                 <p>🕹️ Mau mencoba terjun ke dunia game development? Yuk, bergabung dengan 
+                   Game Development Club (GDC). GDC bergerak dalam memberikan  pembelajaran 
+                   dan aktivitas game development untuk mahasiswa UMN.  Pengalaman di GDC tentunya 
+                   akan membekalimu sebelum masuk ke dunia  pengembangan game yang sesungguhnya!
+                 </p>
+            </div>    
+        </section>
+
+        
+
+
+    <!-- Section Google Maps  dan maps-->
+
+<section id="contact-section">
+  <h2 style="text-align: center; color: #ffa343; font-family: 'Montserrat', sans-serif;">CONNECT WITH US</h2>
+  <div class="contact-container">
+
+    <div id="google-maps">
+      <h3 style="text-align: center; color: #ffa343; font-family: 'Montserrat', sans-serif;">OUR LOCATION</h3>
+      <div id="map"></div>
+      <p class="address">
+        Universitas Multimedia Nusantara <br>Jalan Boulevard, Gading Serpong,  Tangerang, Banten, Indonesia
+      </p>
+    </div>
+
+    
+    <!-- Section Sosial Media -->
+    <div id="custom-social-media">
+      <h3 style="text-align: center; color: #ffa343; font-family: 'Montserrat', sans-serif;">OUR SOCIAL MEDIA</h3>
+      <div class="custom-social-icons">      
+          <a href="https://www.instagram.com/gdcumn?igsh=YmNpYTh4NDFhNzgx" target="_blank" class="custom-social-link">
+          <i class="bx bxl-instagram"></i>
+        </a>
+        <a href="https://gmail.com" target="_blank" class="custom-social-link">
+          <i class="bx bxl-gmail"></i>
+        </a>
+        <a href="https://line.com" target="_blank" class="custom-social-link">
+          <i class="bx bxl-twitter"></i>
+        </a>
+
+        <a href="https://linkedin.com" target="_blank" class="custom-social-link">
+          <i class="bx bxl-linkedin"></i>
+        </a>
+        <a href="https://github.com" target="_blank" class="custom-social-link">
+          <i class="bx bxl-github"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!--form section-->
+
+<section id="contact-form">
+  <h1 style="text-align:center; color:#ffa343; font-family: 'Montserrat', sans-serif;">CONTACT US</h1>
+  <form onsubmit="return validateForm()">      
+    <input 
+      name="name" 
+      type="text" 
+      class="feedback-input" 
+      placeholder="Name" 
+      id="name" 
+    />   
+    <input 
+      name="email" 
+      type="email" 
+      class="feedback-input" 
+      placeholder="Email" 
+      id="email" 
+    />
+    <textarea 
+      name="text" 
+      class="feedback-input" 
+      placeholder="Comment">
+    </textarea>
+    <input type="submit" value="SUBMIT"/>
+  </form>
+</section>
+
+<script>
+  function validateForm() {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const nameRegex = /^[a-zA-Z\s]+$/;
+
+    if (!nameRegex.test(name)) {
+      alert('Nama hanya bisa di isi oleh huruf.');
+      return false;
+    }
+
+    if (!email) {
+      alert('Email is required and must be in a valid format.');
+      return false;
+    }
+
+    return true;
+  }
+</script>
+
+<!-- Footer Section -->
+<footer class="footer">
+  <div class="footer-container">
+      <div class="footer-logos">
+          <img src="assets/logo.png" alt="GCC Logo" />
+          <div class="divider"></div>
+          <img src="assets/umnlogo.png" alt="UMN Logo" />
+      </div>
+
+      <div class="footer-content">
+          <h3>Game Development Club<br />Universitas Multimedia Nusantara</h3>
+          <p>
+              Jl. Boulevard, Gading Serpong, kel. Curug Sangereng,
+              Kec. Kelapa Dua, Kab. Tangerang, Prop. Banten, Indonesia
+          </p>
+      </div>
+
+
+
+      <!-- Social Media Links -->
+      <div class="footer-socials">
+          <a href="https://gmail.com" target="_blank" aria-label="Facebook">
+              <i class="bx bxl-gmail"></i>
+          </a>
+          <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+              <i class="bx bxl-instagram"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+              <i class="bx bxl-twitter"></i>
+          </a>
+          <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+              <i class="bx bxl-linkedin"></i>
+          </a>
+          <a href="https://github.com" target="_blank" aria-label="github">
+              <i class="bx bxl-github"></i>
+          </a>
+      </div>
+  </div>
+
+  <div class="footer-bottom">
+      <p>Game Development &copy; 2024</p>
+  </div>
+</footer>
+
+
+  </srction>
+  <!---custom hs file link-->
+  <script src="script.js"></script>
+  
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDC</title>
+    <link rel="icon" href="assets/logo.png" type="image/x-icon">
+    <!---custom css link-->
+    <link rel="stylesheet" href="style.css">
+
+    <!---boxicons css link-->
+    <link rel="stylesheet"
+     href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+     rel="stylesheet">
+
+     <!---google font css link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <script src="APIs/maps.js"></script>
+
+</head>
+<body>
+    <!---header section-->
+<header>
+    <a href="index.html" class="logo">
+      <img src="assets/logo.png" alt="Logo GDC" />
+    </a>
+    <button class="hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="navbar">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <li><a href="calendar.html">Calendar</a></li>
+      <li><a href="galeri.html">Galeri</a></li>
+      <li><a href="contact.html">Contact us</a></li>
+    </ul>
+  </header>
+  
+  <link rel="stylesheet" href="styles.css">
+  
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navbar = document.querySelector('.navbar');
+  
+    hamburger.addEventListener('click', () => {
+      navbar.classList.toggle('active');
+    });
+  </script>
+  
+
+        <!---home section file link-->
+        <section id="home" class="home">
+            <div class="home-text">
+                 <h1>PROFIL KEPENGURUSAN GAME DEVELOPMENT CLUB</h1>
+                 <p><b>🕹️ Selamat datang di halaman profil kepengurusan Game Development Club! 
+                    Kami adalah komunitas kreatif yang didedikasikan untuk mengembangkan dan mengeksplorasi 
+                    dunia pembuatan game. Tim kami terdiri dari individu yang memiliki passion tinggi dalam 
+                    menciptakan pengalaman interaktif yang menginspirasi.</b>
+                 </p>
+            </div>    
+        </section>
+
+
+        <!---hierarki section-->
+        <section class="hierarchy-section">
+            <div class="hierarchy-header">
+                <h2 style="text-align: center; color: #ffa343; font-family: 'Montserrat', sans-serif;">badan pengurus inti (bpi)</h2>
+            </div>
+            <div class="hierarchy-container">
+                <!-- Ketua -->
+                <div class="hierarchy-row">
+                    <div class="hierarchy-item">
+                        <div class="hierarchy-content">
+                            <img src="assets/credo.png" alt="Ketua" class="hierarchy-image">
+                            <h4>Ketua</h4>
+                            <p>Credo Akwila Mappadang</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Wakil Pengajar, Wakil Acara, Bendahara, Sekretaris -->
+                <div class="hierarchy-row">
+                    <div class="hierarchy-connector"></div>
+                    <div class="hierarchy-item">
+                        <div class="hierarchy-content">
+                            <img src="assets/daffi.png" alt="Wakil Pengajar" class="hierarchy-image">
+                            <h4>Wakil Pengajar</h4>
+                            <p>Daffi Bintang </p>
+                        </div>
+                    </div>
+                    <div class="hierarchy-item">
+                        <div class="hierarchy-content">
+                            <img src="assets/gilbert.png" alt="Wakil Acara" class="hierarchy-image">
+                            <h4>Wakil Acara</h4>
+                            <p>Gilbert Parluhutan </p>
+                        </div>
+                    </div>
+                    <div class="hierarchy-item">
+                        <div class="hierarchy-content">
+                            <img src="assets/rio.png" alt="Bendahara" class="hierarchy-image">
+                            <h4>Bendahara</h4>
+                            <p>Rio Joan Rinaldo</p>
+                        </div>
+                    </div>
+                    <div class="hierarchy-item">
+                        <div class="hierarchy-content">
+                            <img src="assets/brightly.png" alt="Sekretaris" class="hierarchy-image">
+                            <h4>Sekretaris</h4>
+                            <p>Brightly Virya</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+            <!--funfact section-->
+            <section id="information" class="Sejarah">
+                <div class="Sejarah-img">
+                    <img src="assets/sigma.png">
+                </div>
+        
+                <div class="Sejarah-text">
+                    <h5>GAME DEVELOPMENT CLUB</h5>
+                    <h2>Fun Fact</h2>
+                    <p>Banyak game klasik seperti Super Mario Bros. memiliki "spaghetti code"
+                         atau kode yang sulit dimengerti karena keterbatasan perangkat keras. 
+                         Meski begitu, game tersebut tetap berfungsi dengan baik.</p>
+                </div>
+            
+            </section>
+
+
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-logos">
+            <img src="assets/logo.png" alt="GCC Logo" />
+            <div class="divider"></div>
+            <img src="assets/umnlogo.png" alt="UMN Logo" />
+        </div>
+
+        <div class="footer-content">
+            <h3>Game Development Club<br />Universitas Multimedia Nusantara</h3>
+            <p>
+                Jl. Boulevard, Gading Serpong, kel. Curug Sangereng,
+                Kec. Kelapa Dua, Kab. Tangerang, Prop. Banten, Indonesia
+            </p>
+        </div>
+
+  
+
+        <!-- Social Media Links -->
+        <div class="footer-socials">
+            <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                <i class="bx bxl-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/gdcumn?igsh=YmNpYTh4NDFhNzgx" target="_blank" aria-label="Instagram">
+                <i class="bx bxl-instagram"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+                <i class="bx bxl-twitter"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+                <i class="bx bxl-linkedin"></i>
+            </a>
+            <a href="https://github.com" target="_blank" aria-label="github">
+                <i class="bx bxl-github"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>Game Development &copy; 2024</p>
+    </div>
+</footer>
+
+    </srction>
+    <!---custom hs file link-->
+    <script src="script.js"></script>
+    
+</body>
+</html>
